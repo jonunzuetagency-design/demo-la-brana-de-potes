@@ -1,221 +1,195 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Galería · La Braña de Potes</title>
-<meta name="description" content="Apartamentos turísticos en el corazón de la villa, puerta de los Picos de Europa. Limpios, completos y con el trato de Esperanza."><meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
-:root{--pad:clamp(20px,5vw,72px)}
-.wrap{max-width:1320px;margin:0 auto;padding:0 var(--pad)}
-.k{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--acc)}
-.h2{font-family:var(--serif);font-weight:var(--sw,400);font-size:clamp(40px,5.4vw,82px);line-height:1.02;letter-spacing:-.01em;margin-top:16px}
-.h2 em{font-style:italic;color:var(--acc)}
-.lead{font-size:clamp(15px,1.12vw,18px);line-height:1.75;color:var(--mut);font-weight:300;max-width:56ch;margin-top:22px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 30px;border-radius:var(--r-btn,999px);font-size:14px;font-weight:600;letter-spacing:.02em;transition:transform .35s,background .35s,color .35s,box-shadow .35s;white-space:nowrap}
-.btn:hover{transform:translateY(-2px)}
-.b-main{background:var(--acc);color:#fff;box-shadow:0 16px 34px -14px var(--acc)}.b-main:hover{background:var(--ink)}
-.b-ghost{border:1px solid currentColor}.b-ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.b-glass{border:1px solid rgba(255,255,255,.6);color:#fff;backdrop-filter:blur(8px);background:rgba(255,255,255,.08)}.b-glass:hover{background:#fff;color:#111}
-/* revelado */
-.rv{opacity:0;transform:translateY(36px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
-.rv.in{opacity:1;transform:none}.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
-@keyframes up{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
-.up{animation:up 1.3s cubic-bezier(.2,.7,.2,1) both}.up.d1{animation-delay:.15s}.up.d2{animation-delay:.3s}.up.d3{animation-delay:.45s}
-/* slides portada */
-.h-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.12);transition:opacity 2.2s ease,transform 10s linear}
-.h-slide.on{opacity:1;transform:scale(1)}
-.h-dots{display:flex;gap:8px}.h-dots i{width:30px;height:2px;background:rgba(255,255,255,.35);position:relative;overflow:hidden}
-.h-dots i.on::after{content:'';position:absolute;inset:0;background:#fff;animation:fill 6s linear forwards}
-@keyframes fill{from{transform:translateX(-100%)}to{transform:none}}
-/* estrellas */
-.stars{position:relative;display:inline-block;line-height:1;letter-spacing:3px;color:var(--star-off,#e3ddd2)}
-.stars::before{content:"★★★★★"}.stars::after{content:"★★★★★";position:absolute;left:0;top:0;width:var(--p,100%);overflow:hidden;white-space:nowrap;color:#f2b33d}
-/* GALERÍA EN MOVIMIENTO */
-.belt{overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none;padding:8px 0}
-.belt:active{cursor:grabbing}
-.belt-track{display:flex;gap:var(--gap,16px);width:max-content;will-change:transform}
-.b-item{position:relative;flex:none;height:var(--bh,clamp(240px,34vh,400px));border-radius:var(--r-img,14px);overflow:hidden;display:block}
-.b-item img{height:100%;width:auto;max-width:none;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .5s;pointer-events:none}
-.b-item::after{content:'Ver galería ↗';position:absolute;left:14px;bottom:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#fff;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);padding:8px 12px;border-radius:999px;opacity:0;transform:translateY(6px);transition:.4s}
-.b-item:hover img{transform:scale(1.06)}.b-item:hover::after{opacity:1;transform:none}
-.belt-cta{display:flex;justify-content:center;margin-top:34px}
-/* RESEÑAS (estructura común; cada tema cambia colores) */
-.revs{padding:clamp(100px,12vw,170px) 0;background:var(--rv-bg,var(--bg));color:var(--rv-ink,var(--ink));position:relative;overflow:hidden}
-.revs-top{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,90px);align-items:center}
-.summary{display:flex;align-items:center;gap:26px;margin-top:34px}
-.summary .big{font-family:var(--serif);font-size:clamp(80px,9vw,128px);line-height:.8;font-weight:var(--sw,400);color:var(--rv-acc,var(--acc))}
-.summary .stars{font-size:22px}
-.summary p{font-size:13px;color:var(--rv-mut,var(--mut));margin-top:8px;line-height:1.5}
-.gbadge{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px;background:#fff;color:#333;box-shadow:0 6px 20px -10px rgba(0,0,0,.3)}
-.gbadge svg{width:16px;height:16px}
-.feat{display:grid}
-.feat-q{grid-area:1/1;opacity:0;transform:translateY(16px);transition:opacity .9s,transform .9s;pointer-events:none}
-.feat-q.on{opacity:1;transform:none;pointer-events:auto}
-.feat-q blockquote{font-family:var(--serif);font-size:clamp(24px,2.5vw,38px);line-height:1.3;font-weight:var(--sw,400)}
-.feat-q blockquote::before{content:'“';display:block;font-size:2.6em;line-height:.6;color:var(--rv-acc,var(--acc));margin-bottom:6px}
-.feat-q footer{display:flex;align-items:center;gap:12px;margin-top:26px;font-size:14px}
-.feat-q footer small{display:block;color:var(--rv-mut,var(--mut));font-size:12px;margin-top:2px}
-.feat-dots{display:flex;gap:8px;margin-top:22px}
-.feat-dots button{width:26px;height:4px;border-radius:9px;background:var(--rv-line,rgba(0,0,0,.15));transition:.3s}
-.feat-dots button.on{background:var(--rv-acc,var(--acc));width:44px}
-.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:600;font-size:16px;background:hsl(var(--h) 40% 46%);flex:none}
-.rev-grid{columns:3 320px;column-gap:20px;margin-top:clamp(60px,7vw,90px)}
-.rcard{break-inside:avoid;margin-bottom:20px;background:var(--rv-card,#fff);border-radius:var(--r-card,20px);padding:26px 26px 24px;box-shadow:0 24px 50px -36px rgba(0,0,0,.45);border:1px solid var(--rv-line,rgba(0,0,0,.05));transition:transform .5s,box-shadow .5s}
-.rcard:hover{transform:translateY(-4px);box-shadow:0 34px 60px -34px rgba(0,0,0,.5)}
-.rcard .top{display:flex;align-items:center;gap:12px}
-.rcard .top b{font-size:14px;display:block}.rcard .top small{font-size:12px;color:var(--rv-mut,var(--mut))}
-.rcard .top svg{margin-left:auto;width:18px;height:18px;flex:none}
-.rcard .stars{font-size:15px;margin-top:16px}
-.rcard p{margin-top:10px;font-size:15px;line-height:1.65;color:var(--rv-ink,var(--ink));opacity:.88}
-.rcard.more{display:none}.rev-grid.all .rcard.more{display:block}
-.rev-more{display:flex;justify-content:center;margin-top:20px}
-@media(max-width:900px){.revs-top{grid-template-columns:1fr}}
-/* mapa y faq */
-.map{border-radius:var(--r-img,22px);overflow:hidden;min-height:420px;box-shadow:0 40px 80px -50px rgba(0,0,0,.5)}
-.map iframe{width:100%;height:100%;min-height:420px;border:0}
-details{border-bottom:1px solid var(--line,rgba(0,0,0,.12))}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-family:var(--serif);font-size:24px;font-weight:var(--sw,400)}
-summary::-webkit-details-marker{display:none}
-summary i{font-style:normal;font-family:var(--sans);font-size:22px;color:var(--acc);transition:transform .3s}
-details[open] summary i{transform:rotate(45deg)}
-details p{padding:0 0 24px;color:var(--mut);line-height:1.7;font-size:15px;max-width:62ch}
-/* flotantes */
-.wa{position:fixed;right:18px;bottom:64px;z-index:55;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(0,0,0,.4);transition:transform .3s}.wa:hover{transform:scale(1.08)}
-.demo{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:60;background:rgba(20,20,20,.86);color:#fff;font-size:11px;letter-spacing:.05em;padding:8px 16px;border-radius:999px;backdrop-filter:blur(8px);white-space:nowrap;max-width:94vw;overflow:hidden;text-overflow:ellipsis}
-.vid{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:var(--r-img,22px);overflow:hidden;background:#000;box-shadow:0 50px 100px -50px rgba(0,0,0,.6)}
-.vid img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:transform 1.2s,opacity .5s}.vid:hover img{transform:scale(1.04);opacity:1}
-.vid .play{position:absolute;left:50%;top:50%;width:92px;height:92px;margin:-46px;border-radius:50%;background:rgba(255,255,255,.94);color:var(--acc);display:grid;place-items:center;font-size:26px;padding-left:6px;box-shadow:0 0 0 14px rgba(255,255,255,.2);transition:transform .4s}
-.vid:hover .play{transform:scale(1.08)}.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Galería · La Braña de Potes</title>
+<meta name="description" content="Fotos reales de los apartamentos Deva, Quiviesa y Bullón y de la casa amarilla de La Braña de Potes.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f3ecdf">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23e3a62f'/%3E%3Cpath d='M7 12h18M7 12v13h18V12M12 12v13M16 12v13M20 12v13M7 18h18M5 12l11-6 11 6' stroke='%232a1c13' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('anim');</script>
+<style>
+  .g-top { padding: 7rem 0 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; }
+  .g-title { font: 400 clamp(3rem, 8vw, 7.5rem)/.92 var(--f-display); letter-spacing: -.04em; margin: 0; font-variation-settings: 'opsz' 144, 'SOFT' 50; }
+  .g-title em { font-style: italic; font-weight: 300; font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1; color: var(--ink-2); }
+  .g-sub { color: var(--ink-soft); max-width: 30rem; margin: 1.2rem 0 0; }
+  .g-back { margin-bottom: .4rem; }
+  .g-filters { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 2rem; position: sticky; top: 4.4rem; z-index: 5; padding: .7rem 0; background: linear-gradient(var(--paper) 70%, transparent); }
+  .mosaic { columns: 3; column-gap: 1rem; padding-bottom: 6rem; }
+  .tile { break-inside: avoid; margin: 0 0 1rem; position: relative; display: block; width: 100%; padding: 0; border: 0; background: var(--paper-2); border-radius: 6px; overflow: hidden; cursor: zoom-in; text-align: left; }
+  .tile img { width: 100%; height: auto; transition: transform 1.1s var(--ease-out); }
+  .tile:hover img { transform: scale(1.04); }
+  .tile span { position: absolute; left: .7rem; bottom: .7rem; font: .68rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; background: var(--paper); color: var(--ink); padding: .35rem .6rem; border-radius: 99px; }
+  .tile.hide { display: none; }
+  html.anim .tile { clip-path: inset(100% 0 0 0); transition: clip-path 1s var(--ease); }
+  html.anim .tile.in { clip-path: inset(0 0 0 0); }
+  .lb { position: fixed; inset: 0; z-index: 200; background: rgba(35,23,15,.96); color: var(--paper); display: grid; grid-template-rows: auto 1fr auto; visibility: hidden; clip-path: inset(0 0 100% 0); transition: clip-path .7s var(--ease), visibility 0s .7s; }
+  .lb.on { visibility: visible; clip-path: inset(0 0 0 0); transition: clip-path .7s var(--ease), visibility 0s; }
+  .lb__bar { display: flex; justify-content: space-between; align-items: center; padding: 1rem var(--gut); }
+  .lb__stage { position: relative; display: grid; place-items: center; padding: 0 clamp(1rem, 7vw, 6rem); min-height: 0; touch-action: pan-y; }
+  .lb__stage img { max-width: min(100%, 1100px); max-height: 74vh; width: auto; height: auto; border-radius: 6px; box-shadow: 0 40px 90px -30px #000; border: 10px solid var(--paper); user-select: none; -webkit-user-drag: none; }
+  .lb__stage img.swap { animation: lbIn .55s var(--ease-out); }
+  @keyframes lbIn { from { clip-path: inset(0 0 0 100%); transform: translateX(30px); } to { clip-path: inset(0 0 0 0); transform: none; } }
+  .lb__cap { text-align: center; padding: 1rem var(--gut) 3.2rem; font: 300 1.3rem var(--f-display); }
+  .lb__btn { width: 3.2rem; height: 3.2rem; border-radius: 50%; border: 1px solid rgba(243,236,223,.3); background: rgba(35,23,15,.6); color: var(--paper); display: grid; place-items: center; transition: background .3s, color .3s; }
+  .lb__btn:hover { background: var(--ochre); color: var(--ink); border-color: var(--ochre); }
+  .lb__btn svg { width: 1.2rem; height: 1.2rem; }
+  .lb__prev, .lb__next { position: absolute; top: 50%; transform: translateY(-50%); }
+  .lb__prev { left: var(--gut); } .lb__next { right: var(--gut); }
+  .lb__count { color: rgba(243,236,223,.75); }
+  .g-end { border-top: 1px solid var(--line); padding: 3rem 0 6rem; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .g-end p { font: 400 clamp(1.6rem, 3vw, 2.4rem)/1.1 var(--f-display); margin: 0; }
+  .g-end div { display: flex; gap: .7rem; flex-wrap: wrap; }
+  @media (max-width: 860px) {
+    .g-top { grid-template-columns: 1fr; padding-top: 6.4rem; }
+    .g-filters { flex-wrap: nowrap; overflow-x: auto; top: 4.2rem; margin-inline: calc(var(--gut) * -1); padding-inline: var(--gut); scrollbar-width: none; }
+    .g-filters .chip { flex: none; }
+    .mosaic { columns: 2; column-gap: .6rem; }
+    .tile { margin-bottom: .6rem; }
+    .tile span { display: none; }
+    .lb__prev, .lb__next { top: auto; bottom: -3.8rem; transform: none; }
+    .lb__stage { padding: 0 .8rem; }
+    .lb__stage img { border-width: 6px; max-height: 66vh; }
+    .lb__cap { padding-bottom: 5.5rem; font-size: 1.1rem; }
+    .g-end div, .g-end .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.57 2 2.13 6.43 2.13 11.9c0 1.75.46 3.45 1.33 4.95L2.05 22l5.27-1.38a9.9 9.9 0 0 0 4.72 1.2h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.13-2.9-7A9.83 9.83 0 0 0 12.04 2Zm0 18.15h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.17c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M5 3.5h3.2l1.6 4.3-2 1.3a11 11 0 0 0 7.1 7.1l1.3-2 4.3 1.6V19a1.6 1.6 0 0 1-1.7 1.6C10.6 20.1 3.9 13.4 3.4 5.2A1.6 1.6 0 0 1 5 3.5Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
 
-/* ===== PÁGINA DE GALERÍA ===== */
-.gp-head{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px var(--pad);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line,rgba(0,0,0,.08))}
-.gp-head .back{font-size:13px;font-weight:600;display:inline-flex;gap:8px;align-items:center}
-.gp-hero{padding:clamp(60px,9vw,120px) var(--pad) clamp(40px,5vw,60px);max-width:1320px;margin:0 auto}
-.gp-hero .h2{font-size:clamp(54px,8vw,130px)}
-.gp-grid{columns:3 340px;column-gap:14px;padding:0 var(--pad) 120px;max-width:1600px;margin:0 auto}
-.gp-grid a{display:block;margin-bottom:14px;border-radius:var(--r-img,14px);overflow:hidden;break-inside:avoid;position:relative}
-.gp-grid img{width:100%;height:auto;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .5s}
-.gp-grid a:hover img{transform:scale(1.04)}
-.gp-grid a::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(0,0,0,.35));opacity:0;transition:.4s}.gp-grid a:hover::after{opacity:1}
-#lb{position:fixed;inset:0;z-index:100;background:rgba(12,11,10,.96);opacity:0;visibility:hidden;transition:.4s}
-#lb.on{opacity:1;visibility:visible}
-.lb-stage{position:absolute;inset:0;display:grid;place-items:center;padding:60px 80px}
-#lb img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
-#lb button{position:absolute;z-index:2;color:#fff;font-size:24px;width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.3)}
-.lb-x{top:16px;right:16px;font-size:30px!important}.lb-p{left:16px;top:50%;margin-top:-28px}.lb-n{right:16px;top:50%;margin-top:-28px}
-.lb-cap{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#bbb;font-size:12px;letter-spacing:.2em}
-@media(max-width:700px){.lb-stage{padding:60px 10px}.lb-p,.lb-n{top:auto!important;bottom:12px;margin:0!important}}
-/* LA BRAÑA — "Villa": editorial, blanco roto, pizarra y ocre de su fachada. DM Serif + Inter. Tipografía gigante + foto enmarcada. */
-:root{--bg:#fbfaf6;--ink:#1e2832;--mut:#66707a;--acc:#c8902b;--slate:#1e2832;--serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--line:rgba(30,40,50,.12);--r-img:10px;--r-btn:10px;--r-card:14px;
- --rv-bg:#1e2832;--rv-ink:#f4f1ea;--rv-mut:rgba(244,241,234,.6);--rv-acc:#e0ad4e;--rv-card:#26323e;--rv-line:rgba(255,255,255,.07);--star-off:rgba(255,255,255,.18)}
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px var(--pad);transition:.4s}
-.nav.sc{background:rgba(251,250,246,.94);backdrop-filter:blur(12px);padding:12px var(--pad);box-shadow:0 1px 0 var(--line)}
-.logo{font-family:var(--serif);font-size:23px}.nav nav{display:flex;gap:30px;font-size:13px;font-weight:500}.nav-cta{height:44px!important;padding:0 22px!important}
-@media(max-width:860px){.nav nav{display:none}}
-.hero{position:relative;min-height:100svh;padding:120px var(--pad) 70px;display:grid;grid-template-columns:1fr minmax(280px,30vw) 1fr;align-items:center;gap:40px;overflow:hidden}
-.h-big{position:absolute;left:0;right:0;top:50%;transform:translateY(-55%);text-align:center;font-family:var(--serif);font-size:clamp(120px,24vw,420px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(30,40,50,.12);pointer-events:none;white-space:nowrap}
-.h-big br{display:none}
-.h-frame{grid-column:2;position:relative;z-index:1;border-radius:200px 200px 10px 10px;overflow:hidden;box-shadow:0 60px 100px -50px rgba(30,40,50,.55);animation-name:frame}
-.h-frame img{width:100%;height:auto}
-@keyframes frame{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:none}}
-.h-copy{grid-column:1;grid-row:1;position:relative;z-index:2}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,5.4vw,88px);line-height:.98;margin-top:18px}.hero h1 em{color:var(--acc)}
-.sub{color:var(--mut);font-size:16px;line-height:1.65;margin-top:22px;max-width:38ch}
-.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
-.h-rate{grid-column:3;justify-self:end;align-self:end;position:relative;z-index:2;display:flex;align-items:center;gap:16px;background:#fff;border-radius:16px;padding:18px 22px;box-shadow:0 30px 60px -30px rgba(30,40,50,.35)}
-.h-rate b{font-family:var(--serif);font-size:58px;line-height:.8}.h-rate .stars{font-size:16px;display:block}.h-rate small{font-size:12px;color:var(--mut);display:block;margin-top:6px}
-@media(max-width:980px){.hero{grid-template-columns:1fr;padding-top:100px}.h-frame{grid-column:1;max-width:340px;justify-self:center}.h-copy{grid-row:auto}.h-rate{grid-column:1;justify-self:start}}
-.intro{padding:clamp(110px,13vw,170px) 0 0}
-.intro-g{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,90px);align-items:end}
-.datos{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-radius:14px;overflow:hidden}
-.dato{background:var(--bg);padding:26px}.dato b{font-family:var(--serif);font-size:44px;display:block;line-height:1;color:var(--slate)}.dato span{font-size:13px;color:var(--mut);display:block;margin-top:8px}
-@media(max-width:900px){.intro-g{grid-template-columns:1fr}}
-.apts{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:80px;padding-bottom:clamp(100px,12vw,150px)}
-.apt-imgs{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:6px;aspect-ratio:4/3;border-radius:14px;overflow:hidden}
-.apt-imgs img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}.apt-imgs img:first-child{grid-row:span 2}.apt:hover img{transform:scale(1.05)}
-.apt .k{margin-top:20px;display:block}.apt h3{font-family:var(--serif);font-size:38px;font-weight:400;margin-top:4px}.apt p:last-child{color:var(--mut);font-size:14px;margin-top:4px}
-@media(max-width:900px){.apts{grid-template-columns:1fr}}
-.esp{background:var(--acc);color:var(--slate);padding:clamp(90px,11vw,150px) 0;text-align:center}
-.esp .k{color:var(--slate)}.esp blockquote{font-family:var(--serif);font-size:clamp(30px,4vw,60px);line-height:1.15;max-width:22ch;margin:22px auto 0}.esp-a{margin-top:24px;font-size:13px;letter-spacing:.08em}
-.gal{padding:clamp(100px,12vw,160px) 0}.gal-h{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
-.gal .belt{--bh:clamp(300px,46vh,520px)}
-.ubi{padding:clamp(110px,13vw,170px) 0}.ubi-g{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,6vw,90px)}
-.near{list-style:none;margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.near li{background:#fff;border-radius:12px;padding:16px 18px;box-shadow:0 10px 30px -22px rgba(0,0,0,.4)}.near b{display:block;font-size:14px}.near span{font-size:13px;color:var(--mut)}
-@media(max-width:900px){.ubi-g{grid-template-columns:1fr}}
-.faq{padding:0 0 clamp(110px,13vw,170px)}.faq-g{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}@media(max-width:900px){.faq-g{grid-template-columns:1fr;gap:20px}}
-.final{position:relative;min-height:76vh;display:grid;align-items:center;color:#fff;background-size:cover;background-position:center}
-.final::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,40,50,.94) 0%,rgba(30,40,50,.78) 45%,rgba(30,40,50,.15) 100%)}
-.final>div{position:relative;padding:clamp(80px,10vw,140px) var(--pad);max-width:820px}
-.final .h2{font-size:clamp(42px,5.4vw,84px)}.final em{color:var(--acc)}.final .ctas{margin-top:30px}
-.foot{padding:50px 0 90px}.foot-g{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--mut)}
-</style></head><body class="t-villa gp"><header class="gp-head"><a class="back" href="index.html">← La Braña de Potes</a><a class="btn b-main" style="height:44px;padding:0 22px" href="https://wa.me/34942730004?text=Hola%2C%20os%20escribo%20desde%20vuestra%20web.%20Me%20gustar%C3%ADa%20consultar%20disponibilidad%20en%20La%20Bra%C3%B1a%20de%20Potes." target="_blank" rel="noopener">Reservar</a></header>
-<section class="gp-hero"><p class="k up">Galería · 18 fotos</p><h1 class="h2 up d1">La Braña, <em>en imágenes.</em></h1><p class="lead up d2">Potes · Valle de Liébana · Cantabria. Pulsa una foto para verla a pantalla completa; usa las flechas o desliza para pasar.</p></section>
-<div class="gp-grid"><a href="img/media-20-frente.webp" data-full="img/media-20-frente.webp" class="rv"><img src="img/media-20-frente-t.webp" alt="La Braña de Potes · foto 1" loading="lazy" width="649" height="900"></a><a href="img/media-19-ext-2.webp" data-full="img/media-19-ext-2.webp" class="rv"><img src="img/media-19-ext-2-t.webp" alt="La Braña de Potes · foto 2" loading="lazy" width="675" height="900"></a><a href="img/media-18-ext-1.webp" data-full="img/media-18-ext-1.webp" class="rv"><img src="img/media-18-ext-1-t.webp" alt="La Braña de Potes · foto 3" loading="lazy" width="675" height="900"></a><a href="img/media-00-d1.webp" data-full="img/media-00-d1.webp" class="rv"><img src="img/media-00-d1-t.webp" alt="La Braña de Potes · foto 4" loading="lazy" width="900" height="600"></a><a href="img/media-04-d5.webp" data-full="img/media-04-d5.webp" class="rv"><img src="img/media-04-d5-t.webp" alt="La Braña de Potes · foto 5" loading="lazy" width="900" height="675"></a><a href="img/media-01-d2.webp" data-full="img/media-01-d2.webp" class="rv"><img src="img/media-01-d2-t.webp" alt="La Braña de Potes · foto 6" loading="lazy" width="900" height="675"></a><a href="img/media-06-q1.webp" data-full="img/media-06-q1.webp" class="rv"><img src="img/media-06-q1-t.webp" alt="La Braña de Potes · foto 7" loading="lazy" width="900" height="640"></a><a href="img/media-11-q6.webp" data-full="img/media-11-q6.webp" class="rv"><img src="img/media-11-q6-t.webp" alt="La Braña de Potes · foto 8" loading="lazy" width="900" height="675"></a><a href="img/media-08-q3.webp" data-full="img/media-08-q3.webp" class="rv"><img src="img/media-08-q3-t.webp" alt="La Braña de Potes · foto 9" loading="lazy" width="900" height="675"></a><a href="img/media-12-b1.webp" data-full="img/media-12-b1.webp" class="rv"><img src="img/media-12-b1-t.webp" alt="La Braña de Potes · foto 10" loading="lazy" width="900" height="600"></a><a href="img/media-13-b2.webp" data-full="img/media-13-b2.webp" class="rv"><img src="img/media-13-b2-t.webp" alt="La Braña de Potes · foto 11" loading="lazy" width="900" height="600"></a><a href="img/media-14-b3.webp" data-full="img/media-14-b3.webp" class="rv"><img src="img/media-14-b3-t.webp" alt="La Braña de Potes · foto 12" loading="lazy" width="900" height="600"></a><a href="img/media-15-b4.webp" data-full="img/media-15-b4.webp" class="rv"><img src="img/media-15-b4-t.webp" alt="La Braña de Potes · foto 13" loading="lazy" width="900" height="675"></a><a href="img/media-02-d3.webp" data-full="img/media-02-d3.webp" class="rv"><img src="img/media-02-d3-t.webp" alt="La Braña de Potes · foto 14" loading="lazy" width="676" height="900"></a><a href="img/media-05-d6.webp" data-full="img/media-05-d6.webp" class="rv"><img src="img/media-05-d6-t.webp" alt="La Braña de Potes · foto 15" loading="lazy" width="676" height="900"></a><a href="img/media-10-q5.webp" data-full="img/media-10-q5.webp" class="rv"><img src="img/media-10-q5-t.webp" alt="La Braña de Potes · foto 16" loading="lazy" width="900" height="600"></a><a href="img/media-16-b5.webp" data-full="img/media-16-b5.webp" class="rv"><img src="img/media-16-b5-t.webp" alt="La Braña de Potes · foto 17" loading="lazy" width="676" height="900"></a><a href="img/media-03-d4.webp" data-full="img/media-03-d4.webp" class="rv"><img src="img/media-03-d4-t.webp" alt="La Braña de Potes · foto 18" loading="lazy" width="676" height="900"></a></div>
-<div id="lb"><div class="lb-stage"><img alt=""></div><button class="lb-x" aria-label="Cerrar">×</button><button class="lb-p" aria-label="Anterior">←</button><button class="lb-n" aria-label="Siguiente">→</button><p class="lb-cap"></p></div>
-<footer class="foot"><div class="wrap foot-g"><span class="logo">La Braña de Potes</span><span>C. Enrique Herreros, 3 · 39570 Potes (Cantabria) · <a href="tel:+34942730004">942 73 00 04</a></span></div></footer>
-<a class="wa" href="https://wa.me/34942730004?text=Hola%2C%20os%20escribo%20desde%20vuestra%20web.%20Me%20gustar%C3%ADa%20consultar%20disponibilidad%20en%20La%20Bra%C3%B1a%20de%20Potes." target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg></a><p class="demo">Demo preparada por Upscall · fotos y reseñas reales de La Braña de Potes</p><script>// Comportamientos comunes de las demos (sin librerías).
-const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+<p class="demo-note" role="note">Demo preparada por Upscall · fotos y reseñas reales de La Braña de Potes</p>
 
-// Cabecera que cambia al bajar
-const nav = $('.nav'); if (nav) addEventListener('scroll', () => nav.classList.toggle('sc', scrollY > 60), { passive: true });
+<header class="nav" id="nav">
+  <a class="brand" href="index.html" aria-label="Volver a La Braña de Potes">
+    <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M5 15 20 6l15 9M8 15v19h24V15M8 23h24M14 15v19M20 15v19M26 15v19"/></svg>
+    <span class="brand__txt"><b>La Braña</b><i>de Potes</i></span>
+  </a>
+  <div class="nav__cta">
+    <a class="nav__tel" href="tel:+34942730004"><svg><use href="#i-tel"/></svg><span>942 73 00 04</span></a>
+    <a class="btn btn--ink btn--sm" data-wa href="https://wa.me/34942730004" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+  </div>
+</header>
 
-// Revelado al entrar en pantalla
-const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
-$$('.rv').forEach((el) => io.observe(el));
+<main class="wrap">
+  <div class="g-top">
+    <div>
+      <p class="eyebrow"><a class="link-cta" href="index.html"><svg style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>Volver al inicio</a></p>
+      <h1 class="g-title">La casa, <em>por dentro.</em></h1>
+      <p class="g-sub">Fotos reales de los apartamentos Deva, Quiviesa y Bullón, y de la casa amarilla en la calle Enrique Herreros.</p>
+    </div>
+  </div>
+  <div class="g-filters" role="tablist" aria-label="Filtrar fotos" id="filters"></div>
+  <div class="mosaic" id="mosaic"></div>
+  <div class="g-end">
+    <p>¿Te imaginas aquí? Pregunta por tus fechas.</p>
+    <div>
+      <a class="btn btn--ink" data-wa href="https://wa.me/34942730004" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>Escribir por WhatsApp</span></a>
+      <a class="btn btn--line" href="tel:+34942730004"><svg><use href="#i-tel"/></svg><span>942 73 00 04</span></a>
+    </div>
+  </div>
+</main>
 
-// Portada: fundido con zoom lento
-const sl = $$('.h-slide'); let hi = 0;
-if (sl.length > 1) setInterval(() => { sl[hi].classList.remove('on'); hi = (hi + 1) % sl.length; sl[hi].classList.add('on'); $$('.h-dots i').forEach((d, i) => d.classList.toggle('on', i === hi)); }, 6000);
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visor de fotos" aria-hidden="true">
+  <div class="lb__bar">
+    <span class="lb__count mono" id="lbCount">01 / 18</span>
+    <button class="lb__btn" id="lbClose" aria-label="Cerrar visor"><svg><use href="#i-x"/></svg></button>
+  </div>
+  <div class="lb__stage" id="lbStage">
+    <img id="lbImg" alt="">
+    <button class="lb__btn lb__prev" id="lbPrev" aria-label="Foto anterior"><svg style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+    <button class="lb__btn lb__next" id="lbNext" aria-label="Foto siguiente"><svg><use href="#i-arrow"/></svg></button>
+  </div>
+  <p class="lb__cap" id="lbCap"></p>
+</div>
 
-// Galería en movimiento: se desplaza sola, se para al pasar el ratón, se puede arrastrar
-$$('.belt').forEach((belt) => {
-  const track = $('.belt-track', belt); if (!track) return;
-  track.innerHTML += track.innerHTML; // duplicado para bucle infinito
-  const speed = (+belt.dataset.speed || .45) * (belt.dataset.dir === 'r' ? -1 : 1);
-  let x = 0, hover = false, drag = null, half = 0, vis = true;
-  const measure = () => (half = track.scrollWidth / 2);
-  addEventListener('load', measure); addEventListener('resize', measure); measure();
-  new IntersectionObserver(([e]) => (vis = e.isIntersecting)).observe(belt);
-  belt.addEventListener('mouseenter', () => (hover = true)); belt.addEventListener('mouseleave', () => (hover = false));
-  belt.addEventListener('pointerdown', (e) => { drag = { x: e.clientX, s: x, m: 0 }; belt.setPointerCapture(e.pointerId); });
-  belt.addEventListener('pointermove', (e) => { if (!drag) return; drag.m = Math.abs(e.clientX - drag.x); x = drag.s - (e.clientX - drag.x); });
-  belt.addEventListener('pointerup', (e) => {
-    const click = drag && drag.m < 6; drag = null;
-    if (click) { const a = document.elementsFromPoint(e.clientX, e.clientY).find((n) => n.matches?.('a.b-item')); if (a) location.href = a.href; }
+<div class="fab on" id="fab">
+  <a class="fab__tel" href="tel:+34942730004" aria-label="Llamar al 942 73 00 04"><svg><use href="#i-tel"/></svg></a>
+  <a class="fab__wa" data-wa href="https://wa.me/34942730004" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+</div>
+
+<script src="assets/data.js"></script>
+<script>
+(function () {
+  var D = window.BRANA, F = D.fotos;
+  var $ = function (s) { return document.querySelector(s); };
+  document.querySelectorAll('[data-wa]').forEach(function (a) { a.href = D.wa(); });
+  var nav = $('#nav');
+  addEventListener('scroll', function () { nav.classList.toggle('is-solid', scrollY > 30); }, { passive: true });
+
+  var groups = ['Todas', 'Deva', 'Quiviesa', 'Bullón', 'Casa'];
+  $('#filters').innerHTML = groups.map(function (g, i) {
+    var n = g === 'Todas' ? F.length : F.filter(function (f) { return f.g === g; }).length;
+    return '<button class="chip" role="tab" aria-selected="' + (i === 0) + '" data-g="' + g + '">' + (g === 'Casa' ? 'Fachada y vistas' : g) + ' <small>' + n + '</small></button>';
+  }).join('');
+  $('#mosaic').innerHTML = F.map(function (f, i) {
+    var portrait = f.h > f.w, w = portrait ? 675 : 900;
+    return '<button class="tile" data-i="' + i + '" data-g="' + f.g + '" aria-label="Ver en grande: ' + f.c + '"><img src="img/' + f.f + '-t.webp" alt="' + f.c + '" width="' + w + '" height="' + Math.round(w * f.h / f.w) + '" loading="' + (i < 6 ? 'eager' : 'lazy') + '"><span>' + f.c + '</span></button>';
+  }).join('');
+  var tiles = [].slice.call(document.querySelectorAll('.tile'));
+  function reveal() {
+    tiles.forEach(function (t, k) {
+      if (t.classList.contains('in')) return;
+      var r = t.getBoundingClientRect();
+      if (r.top < innerHeight * 0.95 && r.bottom > 0) { t.style.transitionDelay = (k % 3) * 0.08 + 's'; t.classList.add('in'); }
+    });
+  }
+  addEventListener('scroll', reveal, { passive: true }); addEventListener('resize', reveal); setTimeout(reveal, 50);
+
+  var list = F.map(function (_, i) { return i; });
+  $('#filters').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return;
+    var g = b.getAttribute('data-g');
+    document.querySelectorAll('#filters .chip').forEach(function (c) { c.setAttribute('aria-selected', c === b); });
+    tiles.forEach(function (t) { var show = g === 'Todas' || t.getAttribute('data-g') === g; t.classList.toggle('hide', !show); if (show) t.classList.remove('in'); });
+    list = tiles.filter(function (t) { return !t.classList.contains('hide'); }).map(function (t) { return +t.getAttribute('data-i'); });
+    setTimeout(reveal, 30);
   });
-  belt.addEventListener('click', (e) => e.preventDefault());
-  const tick = () => {
-    if (vis && !drag) x += hover ? 0 : speed;
-    if (half) { if (x >= half) x -= half; if (x < 0) x += half; }
-    track.style.transform = `translate3d(${-x}px,0,0)`; requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-});
 
-// Reseña destacada: rota sola
-const feat = $$('.feat-q'); let fi = 0;
-const featGo = (i) => { feat.forEach((f, j) => f.classList.toggle('on', j === i)); $$('.feat-dots button').forEach((d, j) => d.classList.toggle('on', j === i)); fi = i; };
-if (feat.length) {
-  $('.feat-dots').innerHTML = feat.map((_, i) => `<button aria-label="Reseña ${i + 1}"></button>`).join('');
-  $$('.feat-dots button').forEach((b, i) => b.onclick = () => featGo(i)); featGo(0);
-  setInterval(() => featGo((fi + 1) % feat.length), 7000);
-}
-
-// Vídeo de YouTube: se carga al pulsar
-$$('.vid').forEach((v) => v.addEventListener('click', () => { v.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.dataset.yt}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`; }, { once: true }));
-
-// Visor (página de galería)
-const lb = $('#lb');
-if (lb) {
-  const items = $$('[data-full]'); let li = 0; const im = $('img', lb), cap = $('.lb-cap', lb);
-  const show = (i) => { li = (i + items.length) % items.length; im.src = items[li].dataset.full; cap.textContent = `${li + 1} / ${items.length}`; };
-  items.forEach((a, i) => a.addEventListener('click', (e) => { e.preventDefault(); show(i); lb.classList.add('on'); document.body.style.overflow = 'hidden'; }));
-  const close = () => { lb.classList.remove('on'); document.body.style.overflow = ''; };
-  $('.lb-x', lb).onclick = close; $('.lb-p', lb).onclick = () => show(li - 1); $('.lb-n', lb).onclick = () => show(li + 1);
-  lb.addEventListener('click', (e) => { if (e.target === lb || e.target.classList.contains('lb-stage')) close(); });
-  addEventListener('keydown', (e) => { if (!lb.classList.contains('on')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') show(li - 1); if (e.key === 'ArrowRight') show(li + 1); });
-  let tx = null; lb.addEventListener('touchstart', (e) => (tx = e.touches[0].clientX), { passive: true });
-  lb.addEventListener('touchend', (e) => { if (tx === null) return; const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 50) show(li + (d < 0 ? 1 : -1)); tx = null; });
-  if (location.hash.startsWith('#f')) { const i = +location.hash.slice(2); if (items[i]) items[i].click(); }
-}
-</script></body></html>
+  var lb = $('#lb'), img = $('#lbImg'), cap = $('#lbCap'), cnt = $('#lbCount'), pos = 0, lastFocus = null;
+  function show(p) {
+    pos = (p + list.length) % list.length;
+    var f = F[list[pos]];
+    img.classList.remove('swap'); void img.offsetWidth; img.classList.add('swap');
+    img.src = 'img/' + f.f + '.webp'; img.alt = f.c; cap.textContent = f.c;
+    cnt.textContent = ('0' + (pos + 1)).slice(-2) + ' / ' + ('0' + list.length).slice(-2);
+    history.replaceState(null, '', '#' + (list[pos] + 1));
+    var nx = F[list[(pos + 1) % list.length]]; (new Image()).src = 'img/' + nx.f + '.webp';
+  }
+  function open(i) {
+    lastFocus = document.activeElement;
+    var k = list.indexOf(i); if (k < 0) { list = F.map(function (_, j) { return j; }); k = i; }
+    show(k); lb.classList.add('on'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; $('#lbClose').focus();
+  }
+  function close() { lb.classList.remove('on'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; history.replaceState(null, '', location.pathname); if (lastFocus) lastFocus.focus(); }
+  $('#mosaic').addEventListener('click', function (e) { var t = e.target.closest('.tile'); if (t) open(+t.getAttribute('data-i')); });
+  $('#lbPrev').addEventListener('click', function () { show(pos - 1); });
+  $('#lbNext').addEventListener('click', function () { show(pos + 1); });
+  $('#lbClose').addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.id === 'lbStage') close(); });
+  addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('on')) return;
+    if (e.key === 'ArrowRight') show(pos + 1); else if (e.key === 'ArrowLeft') show(pos - 1); else if (e.key === 'Escape') close();
+  });
+  var sx = null, sy = null;
+  $('#lbStage').addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  $('#lbStage').addEventListener('touchend', function (e) {
+    if (sx === null) return; var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) show(pos + (dx < 0 ? 1 : -1)); sx = null;
+  });
+  var h = parseInt(location.hash.slice(1), 10);
+  if (h >= 1 && h <= F.length) setTimeout(function () { open(h - 1); }, 250);
+})();
+</script>
+</body>
+</html>
