@@ -567,7 +567,6 @@ html.anim .hero .hero__lead { --dl: .55s; } html.anim .hero .hero__ctas { --dl: 
 
 .hero__arch { display: none !important; }
 
-.fab__wa { background: var(--ink) !important; color: var(--paper) !important; }
 
 .end__links { display: flex; gap: 1.6rem; flex-wrap: wrap; justify-content: center; margin-top: 1.8rem; }
 .end__links .end__mail { margin-top: 0; }
