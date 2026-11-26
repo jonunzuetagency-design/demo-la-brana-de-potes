@@ -28,7 +28,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x: clip; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 body {
@@ -453,7 +453,7 @@ html.anim .esp__name.in .ch { transform: none; }
   .hero__main { width: 66%; right: 4%; }
   .hero__block { width: 80%; top: 8%; height: 80%; }
   .hero__arch { width: 40%; border-width: 6px; }
-  .seal { width: 5.6rem; right: -.4rem; bottom: 6%; }
+  .seal { width: 5.6rem; right: 0; bottom: 6%; }
   .seal text { font-size: 9.6px; }
   .hero__coord { font-size: .64rem; }
   .names { padding: .9rem 0; }
@@ -465,7 +465,7 @@ html.anim .esp__name.in .ch { transform: none; }
   .aptos__head { grid-template-columns: 1fr; margin-bottom: 2rem; }
   .aptos__note { justify-self: start; }
   .stack { gap: 1.2rem; }
-  .apt { grid-template-columns: 1fr; top: 4.6rem; min-height: 0; padding: 1.3rem; gap: 1.4rem; }
+  .apt { position: relative; top: auto; grid-template-columns: 1fr; min-height: 0; padding: 1.3rem; gap: 1.4rem; }
   .apt__info { order: 2; }
   .apt__pics { order: 1; aspect-ratio: 4 / 3.1; }
   .apt__no { padding-bottom: .9rem; }

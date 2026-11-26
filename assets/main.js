@@ -289,12 +289,15 @@
       gsap.to('.hero__main', { yPercent: -8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
       gsap.to('.hero__arch', { yPercent: -22, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
       gsap.to('.hero__block', { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+      // tarjetas apiladas (solo escritorio): la anterior se hunde al llegar la siguiente
+      var apts = $$('.apt');
+      apts.forEach(function (a, i) {
+        var next = apts[i + 1]; if (!next) return;
+        gsap.to(a, { scale: 0.94, ease: 'none', scrollTrigger: { trigger: next, start: 'top bottom', end: 'top 15%', scrub: true } });
+      });
     });
-    // tarjetas apiladas: la anterior se hunde al llegar la siguiente
-    var apts = $$('.apt');
-    apts.forEach(function (a, i) {
-      var next = apts[i + 1]; if (!next) return;
-      gsap.to(a, { scale: 0.94, ease: 'none', scrollTrigger: { trigger: next, start: 'top bottom', end: 'top 15%', scrub: true } });
+    [].forEach.call([], function (a, i) {
+      var next = null; if (!next) return;
     });
     // la ventana se abre
     gsap.fromTo(win, { '--open': 0 }, { '--open': 1, ease: 'none', scrollTrigger: { trigger: win, start: 'top 85%', end: 'center 45%', scrub: true } });
