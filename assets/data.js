@@ -4,7 +4,7 @@ window.BRANA = {
   telTxt: '942 73 00 04',
   mail: 'labranadepotes@gmail.com',
   wa: function (txt) {
-    return 'https://wa.me/34942730004?text=' + encodeURIComponent(txt || 'Hola Esperanza, he visto la web de La Braña de Potes y quería consultar disponibilidad para estas fechas: ');
+    return 'mailto:labranadepotes@gmail.com?subject=' + encodeURIComponent('Consulta de disponibilidad · La Braña de Potes') + '&body=' + encodeURIComponent((txt || 'Hola Esperanza, he visto la web de La Braña de Potes y quería consultar disponibilidad.') + '\n\nFechas de llegada y salida: \nNúmero de personas: \nTeléfono de contacto: ');
   },
   fotos: [
     { f: 'fachada',    g: 'Casa',     c: 'La fachada amarilla y sus galerías de madera', w: 2000, h: 2773 },
