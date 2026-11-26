@@ -564,3 +564,5 @@ html.anim .hero .hero__lead { --dl: .55s; } html.anim .hero .hero__ctas { --dl: 
 }
 /* Menú legible sobre la foto de la portada */
 .nav { background: rgba(243,236,223,.88); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(42,28,19,.08); }
+
+.hero__arch { display: none !important; }
